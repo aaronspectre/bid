@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bid Dashboard</title>
+	<title>Applications Dashboard</title>
 
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'dash.css' %}">
@@ -18,10 +18,10 @@
 	<div class="main">
 		<nav>
 			<a href="{% url 'sign_out' %}" class="logout-button"><i class="fal fa-arrow-right-from-bracket"></i>&ensp;Logout</a>
-			<a href=""><i class="fal fa-circle-plus"></i>&ensp;Create a Bid</a>
+			<a href=""><i class="fal fa-circle-plus"></i>&ensp;Create a Application</a>
 		</nav>
 		<div class="container">
-			<h1 style="grid-column: span 4;">Bids</h1>
+			<h1 style="grid-column: span 4;">Applications</h1>
 			{% for bid in bids %}
 				<div class="bid-card">
 					<p><i class="fal fa-user"></i>&ensp;{{bid.name}}</p>
