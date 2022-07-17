@@ -3,7 +3,7 @@ import requests
 from aiogram import Bot, Dispatcher, executor, types
 
 
-BOT_TOKEN = '5577392591:AAG0IXQiA58OhQTyclgSgkVyZDx_0doQ41g'
+BOT_TOKEN = '5316381275:AAF5wpb3Xf2lLQspDLedThfMOTyui4SQy1U'
 domain = 'http://localhost:8000/api/create'
 bot = Bot(token = BOT_TOKEN)
 dispatch = Dispatcher(bot)

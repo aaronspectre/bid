@@ -14,6 +14,7 @@ def index(request):
 def sign_in(request):
 	user = authenticate(request, username = request.POST['username'], password = request.POST['password'])
 	if user is not None:
+		print('dash')
 		return HttpResponseRedirect(reverse('dashboard'))
 	else:
 		return HttpResponseRedirect(reverse('index'))
@@ -25,7 +26,7 @@ def sign_out(request):
 
 
 def dashboard(request):
-	if request.user.is_authenticated is not True:
+	if not request.user.is_anonymous:
 		return HttpResponseRedirect(reverse('index'))
 
 	bids = Bid.objects.all().order_by('-date')
