@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bid Dashboard</title>
+
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'dash.css' %}">
+	<link rel="icon" href="https://img.icons8.com/external-smashingstocks-outline-color-smashing-stocks/66/000000/external-bid-finance-smashingstocks-outline-color-smashing-stocks.png">
+
+	<link href="https://kit-pro.fontawesome.com/releases/v6.0.0/css/pro.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Taviraj:wght@100&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">
+		<nav>
+			<a href="{% url 'sign_out' %}" class="logout-button"><i class="fal fa-arrow-right-from-bracket"></i>&ensp;Logout</a>
+			<a href=""><i class="fal fa-circle-plus"></i>&ensp;Create a Bid</a>
+		</nav>
+		<div class="container">
+			<h1 style="grid-column: span 4;">Bids</h1>
+			{% for bid in bids %}
+				<div class="bid-card">
+					<p><i class="fal fa-user"></i>&ensp;{{bid.name}}</p>
+					<p><i class="fal fa-flag"></i>&ensp;{{bid.language}}</p>
+					<p><i class="fal fa-phone"></i>&ensp;{{bid.phone}}</p><br>
+					<a href="{% url 'remove' bid.id %}" class="remove-button"><i class="fal fa-trash"></i>&ensp;Remove</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>

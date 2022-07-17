@@ -1,0 +1,72 @@
+*{
+	font-family: 'Taviroj', serif;
+}
+body{
+	background: whitesmoke;
+	padding: 0;
+	margin: 0;
+}
+nav{
+	display: flex;
+	padding: 3vh;
+}
+nav a{
+	text-decoration: none;
+	color: #187498;
+	padding: 2vh 4vw;
+	border: 2px solid #187498;
+	margin-right: 2vw;
+	font-size: 2vh;
+	border-radius: 1vh;
+}
+nav a:hover{
+	background: #187498;
+	color: white;
+}
+nav .logout-button{
+	color: #EB5353;
+	border: 2px solid #EB5353;
+}
+nav .logout-button:hover{
+	background: #EB5353;
+	color: white;
+}
+
+.container{
+	padding: 3vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 2vw;
+}
+.container h1{
+	opacity: .8;
+}
+.bid-card{
+	margin-top: 2vh;
+	padding: 2vh 2vw;
+	border-radius: 1vh;
+	background: white;
+}
+.bid-card a{
+	margin-top: 1vh;
+	display: block;
+	text-decoration: none;
+	padding: 2vh;
+	text-align: center;
+	color: white;
+	background: #36AE7C;
+	border: 2px solid #36AE7C;
+	border-radius: 1vh;
+}
+.bid-card .remove-button{
+	border: 2px solid #EB5353;
+	background: #EB5353;
+}
+.bid-card a:hover{
+	background: transparent;
+	color: #36AE7C;
+}
+.bid-card .remove-button:hover{
+	background: transparent;
+	color: #EB5353;
+}
