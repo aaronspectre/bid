@@ -6,6 +6,7 @@ class Bid(models.Model):
 	language = models.CharField(max_length = 10)
 	source = models.IntegerField()
 	status = models.CharField(max_length = 50, default = 'alive')
+	product = models.CharField(max_length = 50)
 	date = models.DateTimeField(auto_now = True)
 
 
