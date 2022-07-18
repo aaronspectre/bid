@@ -27,6 +27,7 @@
 					<p><i class="fal fa-user"></i>&ensp;{{bid.name}}</p>
 					<p><i class="fal fa-flag"></i>&ensp;{{bid.language}}</p>
 					<p><i class="fal fa-phone"></i>&ensp;{{bid.phone}}</p><br>
+					<p><i class="fab fa-telegram"></i>&ensp;{{bid.source}}</p><br>
 					<a href="{% url 'remove' bid.id %}" class="remove-button"><i class="fal fa-trash"></i>&ensp;Remove</a>
 				</div>
 			{% endfor %}
