@@ -6,6 +6,7 @@
 	<title>Applications Dashboard</title>
 
 	{% load static %}
+	{% load filters %}
 	<link rel="stylesheet" href="{% static 'dash.css' %}">
 	<link rel="icon" href="https://img.icons8.com/external-smashingstocks-outline-color-smashing-stocks/66/000000/external-bid-finance-smashingstocks-outline-color-smashing-stocks.png">
 
@@ -27,7 +28,7 @@
 					<p><i class="fal fa-user"></i>&ensp;{{bid.name}}</p>
 					<p><i class="fal fa-flag"></i>&ensp;{{bid.language}}</p>
 					<p><i class="fal fa-phone"></i>&ensp;{{bid.phone}}</p>
-					<p><i class="fal fa-message-arrow-down"></i>&ensp;{{bid.source}}</p><br>
+					<p><i class="fal fa-message-arrow-down"></i>&ensp;{{ bid.source|source }}</p><br>
 					<a href="{% url 'remove' bid.id %}" class="remove-button"><i class="fal fa-trash"></i>&ensp;Remove</a>
 				</div>
 			{% endfor %}
