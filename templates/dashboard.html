@@ -18,18 +18,20 @@
 <body>
 	<div class="main">
 		<nav>
-			<a href="{% url 'sign_out' %}" class="logout-button"><i class="fal fa-arrow-right-from-bracket"></i>&ensp;Logout</a>
-			<a href=""><i class="fal fa-circle-plus"></i>&ensp;Create a Application</a>
+			<a href="{% url 'sign_out' %}" class="logout-button"><i class="far fa-arrow-right-from-bracket"></i>&ensp;Logout</a>
+			<a href="{% url 'download' %}"><i class="far fa-download"></i>&ensp;Download</a>
+			<a href="{% url 'history' %}"><i class="far fa-rectangle-vertical-history"></i>&ensp;History</a>
+			<a href="{% url 'history' %}"><i class="far fa-clipboard-list-check"></i>&ensp;Dashboard</a>
 		</nav>
 		<div class="container">
 			<h1 style="grid-column: span 4;">Applications</h1>
 			{% for bid in bids %}
 				<div class="bid-card">
-					<p><i class="fal fa-user"></i>&ensp;{{bid.name}}</p>
-					<p><i class="fal fa-flag"></i>&ensp;{{bid.language}}</p>
-					<p><i class="fal fa-phone"></i>&ensp;{{bid.phone}}</p>
-					<p><i class="fal fa-message-arrow-down"></i>&ensp;{{ bid.source|source }}</p><br>
-					<a href="{% url 'remove' bid.id %}" class="remove-button"><i class="fal fa-trash"></i>&ensp;Remove</a>
+					<p><i class="far fa-user"></i>&ensp;{{bid.name}}</p>
+					<p><i class="far fa-flag"></i>&ensp;{{bid.language}}</p>
+					<p><i class="far fa-phone"></i>&ensp;{{bid.phone}}</p>
+					<p><i class="far fa-message-arrow-down"></i>&ensp;{{ bid.source|source }}</p><br>
+					<a href="{% url 'remove' bid.id %}" class="remove-button"><i class="far fa-trash"></i>&ensp;Remove</a>
 				</div>
 			{% endfor %}
 		</div>

@@ -5,6 +5,7 @@ class Bid(models.Model):
 	phone = models.CharField(max_length = 200)
 	language = models.CharField(max_length = 10)
 	source = models.IntegerField()
+	status = models.CharField(max_length = 50, default = 'alive')
 	date = models.DateTimeField(auto_now = True)
 
 
