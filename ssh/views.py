@@ -17,6 +17,7 @@ def create(request):
 	bid.phone = data['phone']
 	bid.language = data['language']
 	bid.source = data['source']
+	bid.product = data['product']
 	bid.save()
 
 	return JsonResponse(200, safe = False)
