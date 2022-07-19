@@ -42,7 +42,7 @@ def download(request):
 	worksheet = workbook.active
 	worksheet.title = 'Applications'
 
-	channels_list = ['@Axbarot_live', '@TYUZBEK', '@shopirlar', '@YOL_YOLAKAY', '@Salomatlik_sirlari', '@Samarqand_Samarqandliklar_24', '@Uznext', '@Ginekologiya']
+	channels_list = ['@Axbarot_live', '@TYUZBEK', '@shopirlar', '@YOL_YOLAKAY', '@Salomatlik_sirlari', '@Samarqand_Samarqandliklar_24', '@Uznext', '@Ginekologiya', '@UnchaMuncha', '@tezkorxabarlar']
 	channels_list.sort()
 
 	for index in range(1, bids.count()+1):
