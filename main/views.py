@@ -50,6 +50,7 @@ def download(request):
 		worksheet.cell(row = index, column = 2, value = bids[index-1].phone)
 		worksheet.cell(row = index, column = 3, value = bids[index-1].language)
 		worksheet.cell(row = index, column = 4, value = channels_list[bids[index-1].source])
+		worksheet.cell(row = index, column = 5, value = bids[index-1].product)
 		workbook.save(f'{settings.BASE_DIR}/applications.xlsx')
 
 	with open(f'{settings.BASE_DIR}/applications.xlsx', 'rb') as file:
