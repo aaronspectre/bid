@@ -3,10 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Applications Dashboard</title>
+	<title>Bid Channels</title>
 
 	{% load static %}
-	{% load filters %}
 	<link rel="stylesheet" href="{% static 'dash.css' %}">
 	<link rel="icon" href="https://img.icons8.com/external-smashingstocks-outline-color-smashing-stocks/66/000000/external-bid-finance-smashingstocks-outline-color-smashing-stocks.png">
 
@@ -22,24 +21,27 @@
 			<a href="{% url 'download' %}"><i class="far fa-download"></i>&ensp;Download</a>
 			<a href="{% url 'history' %}"><i class="far fa-rectangle-vertical-history"></i>&ensp;History</a>
 			<a href="{% url 'dashboard' %}"><i class="far fa-clipboard-list-check"></i>&ensp;Dashboard</a>
-			<a href="{% url 'channels' %}"><i class="far fa-message-arrow-down"></i>&ensp;Channels</a>
 		</nav>
-		<div class="container">
-			<h1 style="grid-column: span 4;">Applications</h1>
-			{% for bid in bids %}
-				<div class="bid-card">
-					<p><i class="far fa-user"></i>&ensp;{{bid.name}}</p>
-					<p><i class="far fa-flag"></i>&ensp;{{bid.language}}</p>
-					<p><i class="far fa-phone"></i>&ensp;{{bid.phone}}</p>
-					<p><i class="far fa-box-check"></i>&ensp;{{bid.product}}</p>
-					<p><i class="far fa-message-arrow-down"></i>&ensp;{{bid.source}}</p><br>
-					<a href="{% url 'remove' bid.id %}" class="remove-button"><i class="far fa-trash"></i>&ensp;Remove</a>
-				</div>
+		<div class="add-button">
+			<a href="javascript:void(0)" id="add-button"><i class="far fa-plus"></i>&ensp;Add Channel</a>
+		</div>
+		<div class="channel-cards">
+			{% for channel in channels %}
+			<div class="channel-card">
+				<a href="{% url 'channels_remove' channel.id %}"><i class="far fa-trash"></i>&ensp;Remove</a>
+				<span>{{channel.name}}</span>
+			</div>
 			{% endfor %}
 		</div>
 	</div>
-	<script>
-		setTimeout(function() {location.reload()}, 10000);
-	</script>
+	<form action="{% url 'channels_add' %}" method="post" id="add-form">
+		{% csrf_token %}
+		<div class="form-cover"></div>
+		<div class="form-group">
+			<input type="text" placeholder="@Example" name="name">
+			<button type="submit">Add</button>
+		</div>
+	</form>
 </body>
+<script src="{% static 'script.js' %}"></script>
 </html>

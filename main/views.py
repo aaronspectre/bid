@@ -1,4 +1,4 @@
-from main.models import Bid
+from main.models import Bid, Channel
 from openpyxl import Workbook
 from django.urls import reverse
 from django.shortcuts import render
@@ -42,14 +42,11 @@ def download(request):
 	worksheet = workbook.active
 	worksheet.title = 'Applications'
 
-	channels_list = ['@Axbarot_live', '@TYUZBEK', '@shopirlar', '@YOL_YOLAKAY', '@Salomatlik_sirlari', '@Samarqand_Samarqandliklar_24', '@Uznext', '@Ginekologiya', '@UnchaMuncha', '@tezkorxabarlar', '@latifalar_uz', '@Onalar_kanali']
-	channels_list.sort()
-
 	for index in range(1, bids.count()+1):
 		worksheet.cell(row = index, column = 1, value = bids[index-1].name)
 		worksheet.cell(row = index, column = 2, value = bids[index-1].phone)
 		worksheet.cell(row = index, column = 3, value = bids[index-1].language)
-		worksheet.cell(row = index, column = 4, value = channels_list[bids[index-1].source])
+		worksheet.cell(row = index, column = 4, value = bids[index-1].source)
 		worksheet.cell(row = index, column = 5, value = bids[index-1].product)
 		workbook.save(f'{settings.BASE_DIR}/applications.xlsx')
 
@@ -74,3 +71,21 @@ def remove(request, id):
 	bid.status = 'history'
 	bid.save()
 	return HttpResponseRedirect(reverse('dashboard'))
+
+
+
+def channels(request):
+	channels = Channel.objects.all()
+	return render(request, 'channels.html', {'channels': channels})
+
+
+def channels_add(request):
+	channel = Channel()
+	channel.name = request.POST['name']
+	channel.save()
+	return HttpResponseRedirect(reverse('channels'))
+
+
+def channels_remove(request, id):
+	Channel.objects.get(pk = id).delete()
+	return HttpResponseRedirect(reverse('channels'))

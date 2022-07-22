@@ -11,4 +11,9 @@ urlpatterns = [
 	path('download', views.download, name = 'download'),
 	path('dashboard', views.dashboard, name = 'dashboard'),
 	path('dashboard/remove/<int:id>', views.remove, name = 'remove'),
+
+
+	path('channels', views.channels, name = 'channels'),
+	path('channels/add', views.channels_add, name = 'channels_add'),
+	path('channels/remove/<int:id>', views.channels_remove, name = 'channels_remove'),
 ]

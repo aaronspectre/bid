@@ -1,5 +1,5 @@
 import json
-from main.models import Bid
+from main.models import Bid, Channel
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -21,3 +21,12 @@ def create(request):
 	bid.save()
 
 	return JsonResponse(200, safe = False)
+
+
+def source(request):
+	channels = Channel.objects.all()
+	channel_list = list()
+	for channel in channels:
+		channel_list.append(channel.name)
+
+	return JsonResponse(channel_list, safe = False)
